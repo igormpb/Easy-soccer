@@ -1,0 +1,30 @@
+ion-content {
+    --background: #ffff url('../../assets/img/background.png') no-repeat center center / cover !important;
+    opacity: 0.85;
+    
+}
+
+.box-register{
+    margin: 200px auto auto 0px;
+}
+
+.title-app{
+
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 42px;
+    line-height: 49px;
+
+    color: #fff;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.input-box{
+    color:black;
+    opacity: 100;
+    font-size: 21px;
+    border-bottom: black 1px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
