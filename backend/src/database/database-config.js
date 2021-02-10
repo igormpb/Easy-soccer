@@ -2,8 +2,8 @@ const databaseOptions = {
     host     : 'localhost',
     database : 'test',
     user     : 'root',
-    password : 'root',
-    port     : '8889'
+    password : '',
+    port     : '3306'
 };
 
 module.exports = databaseOptions;

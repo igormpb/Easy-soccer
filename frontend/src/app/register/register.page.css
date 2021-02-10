@@ -1,6 +1,5 @@
 ion-content {
-    --background: #ffff url('../../assets/img/background.png') no-repeat center center / cover !important;
-    opacity: 0.85;
+    --background: #ffff url('../../assets/img/images.png') no-repeat center center / cover !important;
     
 }
 
@@ -27,4 +26,7 @@ ion-content {
     font-size: 21px;
     border-bottom: black 1px solid;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.soccer-title{
+    color: #024901;
 }

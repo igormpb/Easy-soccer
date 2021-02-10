@@ -1,6 +1,5 @@
 ion-content {
-    --background: #ffff url('../../assets/img/background.png') no-repeat center center / cover !important;
-    opacity: 0.85;
+    --background: url('../../assets/img/images.png') no-repeat center center / cover !important;
     
 }
 
@@ -13,17 +12,19 @@ ion-content {
     margin-top: 50px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 42px;
     line-height: 49px;
 
-    color: #fff;
+    color: rgb(0, 0, 0);
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
+.soccer-title{
+    color: #024901;
+}
 .input-box{
-    color:black;
-    opacity: 100;
+    opacity: 1;
     font-size: 21px;
     border-bottom: black 1px solid;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

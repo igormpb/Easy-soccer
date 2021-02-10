@@ -1,0 +1,15 @@
+ion-content {
+    --background: url('../../assets/img/buscartime.png') no-repeat center center / cover !important;
+    
+}
+
+.top-text{
+    background-color: #001D01;
+    color: white;
+}
+
+.card-team{
+    border-radius: 26px;
+
+    opacity: 0.80;
+}
