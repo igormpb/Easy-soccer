@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'search-team',
     loadChildren: () => import('./search-team/search-team.module').then( m => m.SearchTeamPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
 ];
 
 @NgModule({

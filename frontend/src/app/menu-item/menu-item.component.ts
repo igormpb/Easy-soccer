@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-menu-item',
+  templateUrl: './menu-item.component.html',
+  styleUrls: ['./menu-item.component.css'],
 })
-export class HomePage {
+export class MenuItemComponent implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  constructor(public menu: MenuController) { 
+
+  }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -24,4 +25,7 @@ export class HomePage {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
+
+  ngOnInit() {}
+
 }
