@@ -19,8 +19,8 @@ export class ApiService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data): Observable<any> {
-    return this.http.post(baseUrl, data);
+  create(url,data): Observable<any> {
+    return this.http.post(`${baseUrl}${url}`, data);
   }
 
   update(id, data): Observable<any> {

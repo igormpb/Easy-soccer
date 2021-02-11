@@ -1,8 +1,8 @@
 const databaseOptions = {
     host     : 'localhost',
-    database : 'test',
+    database : 'easysoccer',
     user     : 'root',
-    password : '',
+    password : 'root',
     port     : '3306'
 };
 

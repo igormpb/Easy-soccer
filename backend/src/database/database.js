@@ -4,13 +4,13 @@ const config = require('./database-config')
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    database: 'test',
+    database: 'easysoccer',
     user: 'root',
-    password: '',
+    password: 'root',
 })
 
 connection.connect(function(err) {
-    if (err) console.log(err);
+    if (err) return console.log(err);
     console.log("Connected!");
   });
 
