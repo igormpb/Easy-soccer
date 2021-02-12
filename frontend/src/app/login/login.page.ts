@@ -25,11 +25,11 @@ export class LoginPage implements OnInit {
     this.api.account('users/login',this.user).subscribe(
       res => {
         if(res.name || res.auth){
-          localStorage.setItem("name", res.name);
+          localStorage.setItem("iduser", res.iduser);
           localStorage.setItem("auth",res.auth)
           this.router.navigate(['/home'])
         }else{
-          alert('Senha incorreta!')
+          alert('Senha ou usuário incorreto!');
           this.router.navigate(["/login"]);
         }
        

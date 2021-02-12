@@ -15,16 +15,16 @@ export class ApiService {
     return this.http.get(baseUrl);
   }
 
-  get(id): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  getUser(url,id): Observable<any> {
+    return this.http.get(`${baseUrl}${url}/${id}`);
   }
 
   account(url,data): Observable<any> {
     return this.http.post(`${baseUrl}${url}`, data);
   }
 
-  update(id, data): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  updateUser(url,id, data): Observable<any> {
+    return this.http.put(`${baseUrl}${url}/${id}`, data);
   }
 
   delete(id): Observable<any> {

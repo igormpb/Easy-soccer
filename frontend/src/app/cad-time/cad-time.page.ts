@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItemComponent } from '../components/menu-item/menu-item.component';
 
 @Component({
   selector: 'app-cad-time',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadTimePage implements OnInit {
 
-  constructor() { }
+  constructor(private menuItem: MenuItemComponent) { }
 
   ngOnInit() {
   }
-
-}
+  openCustom(){
+    this.menuItem.openCustom();
+  }
+} 

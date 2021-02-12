@@ -27,7 +27,7 @@
           <ion-button type="text" (click)="createAccount()" color="dark">Registrar</ion-button>
         </ion-col>
         <ion-col  size="12">
-          <ion-button type="text" placeholder="" href="/login" color="dark">Voltar ao login</ion-button>
+          <ion-button type="text" placeholder="" [routerLink]='["/login"]' routerDirection="root" color="dark">Voltar ao login</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

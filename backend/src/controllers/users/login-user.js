@@ -1,6 +1,6 @@
 const db = require('../../database/database');
 
-module.exports = login_user = async (req, res) =>{
+module.exports = loginUser = async (req, res) =>{
 
     const {email, password} = req.body;
 
@@ -8,13 +8,13 @@ module.exports = login_user = async (req, res) =>{
         return res.json({message: "Os campos são obrigatórios!"});
     }
 
-    const sql = "SELECT email, password, name from users where email=?"
+    const sql = "SELECT email, password, iduser from users where email=?"
 
     await db.query(sql,[email],function(err,result){
         
         if(result < 1) return res.json({message: "senha incorreta!"});
         if(result[0].password == password){
-            return res.json({auth: true, name: result[0].name})
+            return res.json({auth: true, iduser: result[0].iduser})
         }
         
     })

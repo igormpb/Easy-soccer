@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CadTimePageRoutingModule } from './cad-time-routing.module';
 
 import { CadTimePage } from './cad-time.page';
+import { MenuItemComponent } from '../components/menu-item/menu-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CadTimePage } from './cad-time.page';
     IonicModule,
     CadTimePageRoutingModule
   ],
-  declarations: [CadTimePage]
+  declarations: [CadTimePage,MenuItemComponent]
 })
 export class CadTimePageModule {}

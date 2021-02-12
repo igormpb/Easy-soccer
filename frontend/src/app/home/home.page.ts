@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MenuItemComponent } from '../components/menu-item/menu-item.component';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  constructor(private menu: MenuController, private router: Router ) { }
+  constructor(private menu: MenuController, private router: Router, private menuItem: MenuItemComponent) { }
 
 
   ngOnInit() {
@@ -18,18 +19,7 @@ export class HomePage implements OnInit {
       this.router.navigate(['/login'])
     }
   }
-
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    this.menu.open('end');
-  }
-
   openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+    this.menuItem.openCustom()
   }
 }

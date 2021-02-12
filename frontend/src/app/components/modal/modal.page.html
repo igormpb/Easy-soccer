@@ -1,0 +1,46 @@
+
+<ion-content>
+<div class="ion-text-center bio" *ngFor="let editUserProfile of editUserProfiles">
+
+  <app-modal></app-modal>
+  <ion-item >
+    <ion-avatar slot="start">
+      <img src="../../assets/img/user-480.webp">
+    </ion-avatar>
+    <ion-input [(ngModel)]="this.user.name" color="dark"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{editUserProfile.old}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-text color="dark">
+      <ion-input [(ngModel)]="this.user.bio"></ion-input>
+    </ion-text>
+  </ion-item>
+</div>
+
+<ion-card class="card-team" color="dark">
+  <ion-item color="dark" class="ion-text-center">
+    <ion-label>Meu time</ion-label>
+  </ion-item>
+    <ion-card-header class="ion-text-center">
+      <ion-card-title>Nome time</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+    <ion-button expand="full" fill="clear" color="danger">
+      Sair
+    </ion-button>
+  </ion-card>
+
+  <div class="ion-text-center">
+    <ion-button fill="clear" (click)="updateProfile()" color="dark"> Editar </ion-button>
+    <ion-button fill="clear" (click)="sair()" color="danger"> voltar </ion-button>
+
+    
+  </div>
+
+</ion-content>

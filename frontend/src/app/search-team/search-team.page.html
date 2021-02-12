@@ -1,7 +1,10 @@
+<app-menu-item></app-menu-item>
 <ion-header>
   <ion-toolbar>
-    <ion-title class="top-text">Times</ion-title>
-    <ion-button href="/home" fill="clear"><ion-icon name="arrow-back" color="light"></ion-icon> </ion-button>
+    <ion-buttons slot="start">
+      <ion-button (click)="openCustom()" fill="clear"><ion-icon name="menu-outline" color="light"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Times</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,35 +23,4 @@
           and climb a mountain or spend a week in the woods. Wash your spirit clean.
         </ion-card-content>
       </ion-card>
-
-      <ion-card class="card-team" color="dark">
-          <ion-card-header class="ion-text-center">
-            <ion-card-title>Nome time</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>
-        <ion-card class="card-team" color="dark">
-            <ion-card-header class="ion-text-center">
-              <ion-card-title>Nome time</ion-card-title>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          </ion-card>
-          <ion-card class="card-team" color="dark">
-              <ion-card-header class="ion-text-center">
-                <ion-card-title>Nome time</ion-card-title>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Keep close to Nature's heart... and break clear away, once in awhile,
-                and climb a mountain or spend a week in the woods. Wash your spirit clean.
-              </ion-card-content>
-            </ion-card>
 </ion-content>

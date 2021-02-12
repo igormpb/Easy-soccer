@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'cad-time',
     loadChildren: () => import('./cad-time/cad-time.module').then( m => m.CadTimePageModule)
   },
+
 ];
 
 @NgModule({

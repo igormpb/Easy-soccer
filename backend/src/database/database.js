@@ -5,8 +5,8 @@ const config = require('./database-config')
 const connection = mysql.createConnection({
     host: 'localhost',
     database: 'easysoccer',
-    user: 'root',
-    password: '',
+    user: 'root' || "",
+    password: 'root',
 })
 
 connection.connect(function(err) {

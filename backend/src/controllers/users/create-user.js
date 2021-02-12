@@ -1,7 +1,7 @@
 const db = require('../../database/database');
 
 
-module.exports = create_user = async (req, res) =>{
+module.exports = createUser = async (req, res) =>{
 
     const { email, name, password, repeatPassword} = req.body
 
