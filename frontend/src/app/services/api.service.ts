@@ -19,7 +19,7 @@ export class ApiService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(url,data): Observable<any> {
+  account(url,data): Observable<any> {
     return this.http.post(`${baseUrl}${url}`, data);
   }
 

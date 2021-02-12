@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-item',
@@ -8,10 +9,15 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuItemComponent implements OnInit {
 
-  constructor(public menu: MenuController) { 
+  constructor(public menu: MenuController, private router: Router) { 
 
   }
 
+  ngOnInit() {
+    if(!localStorage.getItem('auth')){
+      this.router.navigate(['/login'])
+    }
+  }
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
@@ -26,6 +32,11 @@ export class MenuItemComponent implements OnInit {
     this.menu.open('custom');
   }
 
-  ngOnInit() {}
+ logout(){
+   localStorage.removeItem("auth");
+   localStorage.removeItem("name");   
+   this.router.navigate(['/login'])
+   
+ }
 
 }

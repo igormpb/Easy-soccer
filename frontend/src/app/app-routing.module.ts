@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'cad-time',
+    loadChildren: () => import('./cad-time/cad-time.module').then( m => m.CadTimePageModule)
+  },
 ];
 
 @NgModule({

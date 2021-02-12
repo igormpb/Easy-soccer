@@ -1,5 +1,5 @@
 .top-text{
-    background-color: #001D01;
+    background-color: #001D01 !important;
     color: white;
 }
 .bio{
@@ -25,4 +25,11 @@
   border-bottom: 1px solid #ccc;
   margin: 10px 0;
   width: 100%;
+}
+
+.d{
+    border: 1px solid black;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }
