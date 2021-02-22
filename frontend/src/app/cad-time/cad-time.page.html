@@ -1,4 +1,4 @@
-<!-- <app-menu-item></app-menu-item>
+<app-menu-item></app-menu-item>
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -11,30 +11,33 @@
 
 <ion-content>
   <div>
+    <ion-card class="card-team" color="dark" >
     <ion-grid class="box-register">
     <ion-row>
       <ion-col size="12">
-        <ion-input type="email" class="input-box" [(ngModel)]="user.email" name="E-mail" placeholder="    E-mail" ></ion-input>
+        <ion-input type="teste" class="input-box" name="name" [(ngModel)]="cadTeam.nameTeam" placeholder="Nome do time" ></ion-input>
       </ion-col>
       <ion-col size="12">
-        <ion-input type="text" class="input-box" [(ngModel)]="user.name" name="name" placeholder="    Name" ></ion-input>
+        <ion-textarea type="text" class="input-box" name="description" [(ngModel)]="cadTeam.description" placeholder="descrição"></ion-textarea>
       </ion-col>
       <ion-col size="12">
-        <ion-input type="password" class="input-box" [(ngModel)]="user.password" name="username" placeholder="    Password" ></ion-input>
-      </ion-col>
-      <ion-col size="12">
-        <ion-input type="password" class="input-box" [(ngModel)]="team.name" name="password" placeholder="    Repeat Password"></ion-input>
+        <ion-label>Quantidade de membros</ion-label>
+        <ion-select [(ngModel)]="cadTeam.quantity">
+          <ion-select-option  value="6">6</ion-select-option>
+          <ion-select-option  value="12">12</ion-select-option>
+        </ion-select>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid>
     <ion-row class="ion-text-center">
       <ion-col size="12">
-        <ion-button type="text" (click)="CreateTeam()" color="dark">Criar</ion-button>
+        <ion-button type="text" (click)="createTeam()" color="dark">Criar</ion-button>
       </ion-col>
       <ion-col  size="12">
       </ion-col>
     </ion-row>
   </ion-grid>
+</ion-card>
  </div>
-</ion-content> -->
+</ion-content>

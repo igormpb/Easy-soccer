@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 import { MenuItemComponent } from '../components/menu-item/menu-item.component';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-search-team',
@@ -10,12 +11,23 @@ import { MenuItemComponent } from '../components/menu-item/menu-item.component';
   styleUrls: ['./search-team.page.css'],
 })
 export class SearchTeamPage implements OnInit {
-  constructor(private menu: MenuController, private menuItem: MenuItemComponent) { }
-
+  constructor(private menu: MenuController, private menuItem: MenuItemComponent, private api: ApiService) { }
+  teams:any
+  fkteam:[]
   ngOnInit() {
   }
   openCustom() {
     this.menuItem.openCustom()
   }
 
+ async ionViewWillEnter(){
+     this.listTeams();    
+      
+  }
+
+  listTeams(){
+    this.api.getTeams('teams/list').subscribe(
+      res=> this.teams = res
+    )
+  }
 }

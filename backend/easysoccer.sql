@@ -1,221 +1,145 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+CREATE DATABASE  IF NOT EXISTS `easysoccer` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `easysoccer`;
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: 11-Fev-2021 às 01:31
--- Versão do servidor: 10.1.39-MariaDB
--- versão do PHP: 7.3.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: 127.0.0.1    Database: easysoccer
+-- ------------------------------------------------------
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `easysoccer`
+-- Table structure for table `agendarpartida`
 --
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `agendarpartida`
---
-
+DROP TABLE IF EXISTS `agendarpartida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `agendarpartida` (
-  `IdAg` int(11) NOT NULL,
+  `IdAg` int NOT NULL AUTO_INCREMENT,
   `Data` varchar(100) NOT NULL,
   `Hora` varchar(100) NOT NULL,
-  `Lugar` varchar(100) NOT NULL
+  `Lugar` varchar(100) NOT NULL,
+  PRIMARY KEY (`IdAg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `buscartime`
+-- Table structure for table `buscartime`
 --
 
+DROP TABLE IF EXISTS `buscartime`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `buscartime` (
-  `IdBuscar` int(11) NOT NULL
+  `IdBuscar` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`IdBuscar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `chat`
+-- Table structure for table `chat`
 --
 
+DROP TABLE IF EXISTS `chat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chat` (
-  `IdChat` int(11) NOT NULL
+  `IdChat` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`IdChat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `equipe`
---
-
-CREATE TABLE `equipe` (
-  `IdEquipe` int(11) NOT NULL,
-  `Jogadores` varchar(100) NOT NULL,
-  `Quantidade` varchar(100) NOT NULL,
-  `FkTime` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `perfil`
+-- Table structure for table `equip`
 --
 
+DROP TABLE IF EXISTS `equip`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `equip` (
+  `idequip` int NOT NULL AUTO_INCREMENT,
+  `fkuser` int NOT NULL,
+  `fkteam` int NOT NULL,
+  PRIMARY KEY (`idequip`),
+  KEY `fkTeam_idx` (`fkteam`),
+  KEY `fkUser_idx` (`fkuser`),
+  CONSTRAINT `fkteamId` FOREIGN KEY (`fkteam`) REFERENCES `teams` (`idTeam`),
+  CONSTRAINT `fkuserId` FOREIGN KEY (`fkuser`) REFERENCES `users` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `perfil`
+--
+
+DROP TABLE IF EXISTS `perfil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `perfil` (
-  `IdPerfil` int(11) NOT NULL,
-  `FkUser` int(11) NOT NULL
+  `IdPerfil` int NOT NULL AUTO_INCREMENT,
+  `FkUser` int NOT NULL,
+  PRIMARY KEY (`IdPerfil`),
+  KEY `FkUser` (`FkUser`),
+  CONSTRAINT `FkUser` FOREIGN KEY (`FkUser`) REFERENCES `users` (`iduser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `teams`
+-- Table structure for table `teams`
 --
 
+DROP TABLE IF EXISTS `teams`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teams` (
-  `idTime` int(11) NOT NULL,
-  `Nome do time` varchar(100) NOT NULL,
-  `Quantidade` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+  `idTeam` int NOT NULL AUTO_INCREMENT,
+  `nameTeam` varchar(100) NOT NULL,
+  `quantity` int NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idTeam`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `users`
+-- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `iduser` int(11) NOT NULL,
+  `iduser` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `old` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(100) NOT NULL,
+  `bio` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`iduser`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Indexes for dumped tables
+-- Dumping events for database 'easysoccer'
 --
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for table `agendarpartida`
---
-ALTER TABLE `agendarpartida`
-  ADD PRIMARY KEY (`IdAg`);
-
---
--- Indexes for table `buscartime`
---
-ALTER TABLE `buscartime`
-  ADD PRIMARY KEY (`IdBuscar`);
-
---
--- Indexes for table `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`IdChat`);
-
---
--- Indexes for table `equipe`
---
-ALTER TABLE `equipe`
-  ADD PRIMARY KEY (`IdEquipe`),
-  ADD KEY `FkTime` (`FkTime`);
-
---
--- Indexes for table `perfil`
---
-ALTER TABLE `perfil`
-  ADD PRIMARY KEY (`IdPerfil`),
-  ADD KEY `FkUser` (`FkUser`);
-
---
--- Indexes for table `teams`
---
-ALTER TABLE `teams`
-  ADD PRIMARY KEY (`idTime`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`iduser`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `agendarpartida`
---
-ALTER TABLE `agendarpartida`
-  MODIFY `IdAg` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `buscartime`
---
-ALTER TABLE `buscartime`
-  MODIFY `IdBuscar` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `chat`
---
-ALTER TABLE `chat`
-  MODIFY `IdChat` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `equipe`
---
-ALTER TABLE `equipe`
-  MODIFY `IdEquipe` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `perfil`
---
-ALTER TABLE `perfil`
-  MODIFY `IdPerfil` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `teams`
---
-ALTER TABLE `teams`
-  MODIFY `idTime` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `equipe`
---
-ALTER TABLE `equipe`
-  ADD CONSTRAINT `FkTime` FOREIGN KEY (`FkTime`) REFERENCES `teams` (`idTime`);
-
---
--- Limitadores para a tabela `perfil`
---
-ALTER TABLE `perfil`
-  ADD CONSTRAINT `FkUser` FOREIGN KEY (`FkUser`) REFERENCES `users` (`iduser`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-02-22 17:48:25

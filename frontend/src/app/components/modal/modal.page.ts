@@ -30,7 +30,6 @@ export class ModalPage implements OnInit {
     this.user.bio = this.editUserProfiles[0].bio;
   }
   sair(){
-    console.log(this.user.name);
     this.modalController.dismiss();
   }
 

@@ -13,14 +13,14 @@
     <div class="ion-text-center">
         <ion-searchbar placeholder="Buscar Time" color="dark"></ion-searchbar>
     </div>
-    <ion-card class="card-team" color="dark">
+    <ion-card class="card-team" color="dark" *ngFor="let team of teams" >
         <ion-card-header class="ion-text-center">
-          <ion-card-title>Nome time</ion-card-title>
+          <ion-card-title>{{team.nameTeam}}</ion-card-title>
+          <ion-card-subtitle>Tamanho do time: {{team.quantity}}</ion-card-subtitle>
         </ion-card-header>
       
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+         {{team.description}}
         </ion-card-content>
       </ion-card>
 </ion-content>
