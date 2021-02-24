@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `easysoccer` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `easysoccer` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `easysoccer`;
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
@@ -58,7 +58,7 @@ CREATE TABLE `chat` (
   PRIMARY KEY (`IdChat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+c
 --
 -- Table structure for table `equip`
 --
@@ -75,7 +75,7 @@ CREATE TABLE `equip` (
   KEY `fkUser_idx` (`fkuser`),
   CONSTRAINT `fkteamId` FOREIGN KEY (`fkteam`) REFERENCES `teams` (`idTeam`),
   CONSTRAINT `fkuserId` FOREIGN KEY (`fkuser`) REFERENCES `users` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     database: 'easysoccer',
     user: 'root' || "",
-    password: 'root',
+    password: ""
 })
 
 connection.connect(function(err) {

@@ -14,7 +14,8 @@ export class CadTimePage implements OnInit {
   cadTeam = {
     nameTeam: "",
     description: "",
-    quantity: ""
+    quantity: "",
+    iduser: localStorage.getItem("iduser")
   }
   ngOnInit() {
   }
@@ -25,7 +26,10 @@ export class CadTimePage implements OnInit {
 
   createTeam(){
     this.api.createTeam("teams/create", this.cadTeam).subscribe(
-      res => alert(res.message)
+      res => alert(res.message),
+      error => alert("Os campos são obrigátorios")
+      
     )
   }
+
 } 
