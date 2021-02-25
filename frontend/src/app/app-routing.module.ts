@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'cad-time',
     loadChildren: () => import('./cad-time/cad-time.module').then( m => m.CadTimePageModule)
+  },  {
+    path: 'my-team',
+    loadChildren: () => import('./my-team/my-team.module').then( m => m.MyTeamPageModule)
   },
+
 
 ];
 
