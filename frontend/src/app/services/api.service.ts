@@ -29,6 +29,9 @@ export class ApiService {
     return this.http.post(`${baseUrl}${url}`, data);
   }
 
+  joinTeam(url, data): Observable<any> {
+    return this.http.put(`${baseUrl}${url}`, data);
+  }
   updateUser(url,id, data): Observable<any> {
     return this.http.put(`${baseUrl}${url}/${id}`, data);
   }

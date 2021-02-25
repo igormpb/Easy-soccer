@@ -13,7 +13,8 @@ import { ApiService } from '../services/api.service';
 export class SearchTeamPage implements OnInit {
   constructor(private menu: MenuController, private menuItem: MenuItemComponent, private api: ApiService) { }
   teams:any
-  fkteam:[]
+  private iduser = localStorage.getItem("iduser")
+  data: any
   ngOnInit() {
   }
   openCustom() {
@@ -28,6 +29,16 @@ export class SearchTeamPage implements OnInit {
   listTeams(){
     this.api.getTeams('teams/list').subscribe(
       res=> this.teams = res
+    )
+  }
+
+  joinTeam(idTeam){
+     this.data = {
+      idTeam: idTeam,
+      iduser: this.iduser
+    }
+    this.api.joinTeam("teams/join",this.data).subscribe(
+      res =>  alert(res.message)
     )
   }
 }
