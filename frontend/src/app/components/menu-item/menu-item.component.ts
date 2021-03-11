@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu-item.component.css'],
 })
 export class MenuItemComponent{
-
+  private team = localStorage.getItem('team')
   constructor(public menu: MenuController, private router: Router) { 
 
   }

@@ -49,7 +49,6 @@ export class PerfilPage implements OnInit {
      
       res =>{
         this.userProfiles = res;
-        console.log(this.userProfiles)
       }
     )
   }

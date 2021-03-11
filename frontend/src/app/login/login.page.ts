@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../services/api.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -24,10 +25,13 @@ export class LoginPage implements OnInit {
 
     this.api.account('users/login',this.user).subscribe(
       res => {
+        console.log(res.token)
         if(res.name || res.auth){
           localStorage.setItem("iduser", res.iduser);
-          localStorage.setItem("auth",res.auth)
-          this.router.navigate(['/home'])
+
+          
+          localStorage.setItem("auth",res.auth);
+          this.router.navigate(['/home']);
         }else{
           alert('Senha ou usuário incorreto!');
           this.router.navigate(["/login"]);

@@ -26,7 +26,13 @@ export class CadTimePage implements OnInit {
 
   createTeam(){
     this.api.createTeam("teams/create", this.cadTeam).subscribe(
-      res => alert(res.message),
+      res => {
+        alert(res.message)
+        this.cadTeam.nameTeam = "";
+        this.cadTeam.description = "";
+        this.cadTeam.quantity = "";
+      },
+      
       error => alert("Os campos são obrigátorios")
       
     )

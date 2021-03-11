@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.get(`${baseUrl}${url}`);
   }
   
-  getMembers(url,data): Observable<any> {
-    return this.http.get(`${baseUrl}${url}`, data);
+  getMembers(url,id): Observable<any> {
+    return this.http.get(`${baseUrl}${url}/${id}`);
   }
 
   createTeam(url,data): Observable<any> {

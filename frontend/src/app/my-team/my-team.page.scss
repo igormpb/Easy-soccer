@@ -5,8 +5,19 @@ ion-toolbar{
   }
 
 .card-team{
-    margin-top: 85px;
-    border-radius: 26px;
 
+    border-radius: 26px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 0.80;
+}
+.hr {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.897);
+    margin: 10px 0;
+    width: 100%;
+  }
+
+.menu{
+  margin-top: 250px;
 }
